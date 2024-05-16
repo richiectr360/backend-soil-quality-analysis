@@ -3,6 +3,14 @@ from langchain.prompts import PromptTemplate
 from langchain.chat_models import ChatOpenAI
 from langchain import LLMChain
 import numpy as np
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Access the OPENAI_API_KEY
+openai_api_key = os.getenv('OPENAI_API_KEY')
 
 loaded_model = XGBClassifier()
 loaded_model.load_model("assets/xgboost_model_soil.bin")
@@ -39,9 +47,6 @@ def get_data_JSON(relevant_data, loaded_model):
 
     return data_dict
     
-
-
-OPENAI_API_KEY='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'
 
 
 PROMPT_TEMPLATE1="""

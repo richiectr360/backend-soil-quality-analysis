@@ -5,14 +5,12 @@ import json
 with open('assets/senor_data.json', 'r') as infile:
         sensor_data = json.load(infile)
 
-
 def info_response(input_sensor):
         data_json = get_data_JSON(input_sensor, loaded_model)
         print(data_json)
         explanation = chain1.predict(data_JSON = data_json)
         return explanation
         
-
 def chat_response_user(history, message):
         explanation = chain2.predict(user_history = history, user_message = message)
         return explanation
